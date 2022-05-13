@@ -17,13 +17,18 @@ export const columns: BasicColumn[] = [
   },
   {
     title: 'IP',
-    dataIndex: 'type',
+    dataIndex: 'ip',
     width: 80,
     customRender: ({ record }) => {
       const color = 'blue';
       const text = record.ip;
       return h(Tag, { color: color }, () => text);
     },
+  },
+  {
+    title: '登录地点',
+    dataIndex: 'address',
+    width: 80,
   },
   {
     title: '时间',
@@ -47,8 +52,8 @@ export const columns: BasicColumn[] = [
 
 export const searchFormSchema: FormSchema[] = [
   {
-    field: `username`,
-    label: `用户名`,
+    field: 'username',
+    label: '用户名',
     component: 'Input',
     colProps: {
       sm: 12,
@@ -56,15 +61,23 @@ export const searchFormSchema: FormSchema[] = [
     },
   },
   {
-    field: `ip`,
-    label: `IP`,
+    field: 'ip',
+    label: 'IP',
     component: 'Input',
     colProps: {
       sm: 12,
       md: 6,
     },
   },
-
+  {
+    field: 'address',
+    label: '登录地点',
+    component: 'Input',
+    colProps: {
+      sm: 12,
+      md: 6,
+    },
+  },
   {
     field: 'time',
     component: 'RangePicker',

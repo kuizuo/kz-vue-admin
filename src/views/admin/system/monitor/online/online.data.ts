@@ -24,7 +24,7 @@ export const columns: BasicColumn[] = [
   },
   {
     title: '登录地点',
-    dataIndex: 'iaddressp',
+    dataIndex: 'address',
     width: 140,
     align: 'center',
   },
