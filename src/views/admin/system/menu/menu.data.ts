@@ -209,6 +209,7 @@ export const formSchema: FormSchema[] = [
     ifShow: ({ values }) => isMenu(values.type),
     componentProps: {
       options: Object.keys(constantRouterComponents).map((n) => ({ label: n, value: n })),
+      showSearch: true,
     },
   },
   {
