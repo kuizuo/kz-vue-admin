@@ -79,7 +79,7 @@
 
   async function handleDelete(record: Recordable) {
     await deleteMenu({ id: record.id });
-    deleteTableDataRecord(record.id);
+    reload();
   }
 
   function handleSuccess() {
