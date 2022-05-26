@@ -1,10 +1,12 @@
 import { defHttp } from '/@/utils/http/axios';
-import { LoginParams, LoginResultModel, GetUserInfoModel } from './model/userModel';
+import { LoginParams, LoginResultModel, GetUserInfoModel, RegisterParams } from './model/userModel';
 
 import { ErrorMessageMode } from '/#/axios';
 
 enum Api {
   Login = '/login',
+  Register = '/register',
+  SendCode = '/sendCode',
   Logout = '/account/logout',
   GetUserInfo = '/account/info',
   GetPermCode = '/account/perm',
@@ -21,6 +23,37 @@ export function loginApi(params: LoginParams, mode: ErrorMessageMode = 'modal') 
     },
     {
       errorMessageMode: mode,
+    },
+  );
+}
+
+/**
+ * @description: user register api
+ */
+export function registerApi(params: RegisterParams, mode: ErrorMessageMode = 'modal') {
+  return defHttp.post(
+    {
+      url: Api.Register,
+      params,
+    },
+    {
+      successMsg: '注册成功',
+      errorMessageMode: mode,
+    },
+  );
+}
+
+/**
+ * @description: user sendCode api
+ */
+export function sendCodeApi(params: { email: string }) {
+  return defHttp.post(
+    {
+      url: Api.SendCode,
+      params: params,
+    },
+    {
+      successMsg: '发送成功',
     },
   );
 }

@@ -39,7 +39,7 @@
   import { columns, searchFormSchema } from './menu.data';
 
   const [registerDrawer, { openDrawer }] = useDrawer();
-  const [registerTable, { reload, expandAll, collapseAll, deleteTableDataRecord }] = useTable({
+  const [registerTable, { reload, expandAll, collapseAll }] = useTable({
     title: '菜单列表',
     api: getMenuList,
     columns,
@@ -62,6 +62,7 @@
       slots: { customRender: 'action' },
       fixed: undefined,
     },
+    rowKey: 'id',
   });
 
   function handleCreate() {

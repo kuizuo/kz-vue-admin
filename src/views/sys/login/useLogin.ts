@@ -1,7 +1,7 @@
-import type { ValidationRule } from 'ant-design-vue/lib/form/Form';
 import type { RuleObject } from 'ant-design-vue/lib/form/interface';
 import { ref, computed, unref, Ref } from 'vue';
 import { useI18n } from '/@/hooks/web/useI18n';
+import { sendCodeApi } from '/@/api/sys/user';
 
 export enum LoginStateEnum {
   LOGIN,
@@ -43,8 +43,10 @@ export function useFormRules(formData?: Recordable) {
 
   const getAccountFormRule = computed(() => createRule(t('sys.login.accountPlaceholder')));
   const getPasswordFormRule = computed(() => createRule(t('sys.login.passwordPlaceholder')));
-  const getSmsFormRule = computed(() => createRule(t('sys.login.smsPlaceholder')));
   const getMobileFormRule = computed(() => createRule(t('sys.login.mobilePlaceholder')));
+  const getSmsFormRule = computed(() => createRule(t('sys.login.smsPlaceholder')));
+  const getEmailFormRule = computed(() => createRule(t('sys.login.emailPlaceholder')));
+  const getEmailCodeFormRule = computed(() => createRule(t('sys.login.smsPlaceholder')));
 
   const validatePolicy = async (_: RuleObject, value: boolean) => {
     return !value ? Promise.reject(t('sys.login.policyPlaceholder')) : Promise.resolve();
@@ -62,33 +64,41 @@ export function useFormRules(formData?: Recordable) {
     };
   };
 
-  const getFormRules = computed((): { [k: string]: ValidationRule | ValidationRule[] } => {
+  const getFormRules = computed((): { [k: string]: any } => {
     const accountFormRule = unref(getAccountFormRule);
     const passwordFormRule = unref(getPasswordFormRule);
     const smsFormRule = unref(getSmsFormRule);
     const mobileFormRule = unref(getMobileFormRule);
+    const emailFormRule = unref(getEmailFormRule);
+    const emailCodeFormRule = unref(getEmailCodeFormRule);
 
     const mobileRule = {
       sms: smsFormRule,
       mobile: mobileFormRule,
     };
+
+    const emailRule = {
+      email: emailFormRule,
+      emailCode: emailCodeFormRule,
+    };
+
     switch (unref(currentState)) {
       // register form rules
       case LoginStateEnum.REGISTER:
         return {
-          account: accountFormRule,
+          username: accountFormRule,
           password: passwordFormRule,
           confirmPassword: [
             { validator: validateConfirmPassword(formData?.password), trigger: 'change' },
           ],
           policy: [{ validator: validatePolicy, trigger: 'change' }],
-          ...mobileRule,
+          ...emailRule,
         };
 
       // reset password form rules
       case LoginStateEnum.RESET_PASSWORD:
         return {
-          account: accountFormRule,
+          username: accountFormRule,
           ...mobileRule,
         };
 
@@ -99,7 +109,7 @@ export function useFormRules(formData?: Recordable) {
       // login form rules
       default:
         return {
-          account: accountFormRule,
+          username: accountFormRule,
           password: passwordFormRule,
         };
     }
@@ -115,4 +125,12 @@ function createRule(message: string) {
       trigger: 'change',
     },
   ];
+}
+
+export function useSendCode() {
+  async function sendCode(email) {
+    await sendCodeApi({ email });
+    return true;
+  }
+  return { sendCode };
 }

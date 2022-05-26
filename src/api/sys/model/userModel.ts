@@ -36,3 +36,11 @@ export interface GetUserInfoModel {
   // 介绍
   desc?: string;
 }
+
+export interface RegisterParams {
+  username: string;
+  password: string;
+  email: string;
+  qq?: string;
+  code: string;
+}

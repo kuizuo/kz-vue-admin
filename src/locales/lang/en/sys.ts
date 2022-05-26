@@ -91,14 +91,17 @@ export default {
     passwordPlaceholder: 'Please input password',
     smsPlaceholder: 'Please input sms code',
     mobilePlaceholder: 'Please input mobile',
+    emailPlaceholder: 'Please input email',
     policyPlaceholder: 'Register after checking',
     diffPwd: 'The two passwords are inconsistent',
 
     userName: 'Username',
     password: 'Password',
+    qq: 'QQ',
     confirmPassword: 'Confirm Password',
     email: 'Email',
     smsCode: 'SMS code',
+    emailCode: 'email code',
     mobile: 'Mobile',
   },
 };
