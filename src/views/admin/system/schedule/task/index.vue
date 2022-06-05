@@ -89,7 +89,7 @@
     <TaskModal @register="registerModal" @success="handleSuccess" />
   </PageWrapper>
 </template>
-<script lang="ts" setup name="ScheduleTask">
+<script lang="ts" setup name="定时任务">
   import { Descriptions, Tooltip, Popconfirm, Button } from 'ant-design-vue';
   import { ToolOutlined, CaretRightOutlined, PoweroffOutlined } from '@ant-design/icons-vue';
   import { PageWrapper } from '/@/components/Page';

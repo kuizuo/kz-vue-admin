@@ -28,7 +28,7 @@
     </BasicTable>
   </div>
 </template>
-<script lang="ts" setup>
+<script lang="ts" setup name="存储管理">
   import { ref } from 'vue';
   import { Popconfirm, Image, Tooltip } from 'ant-design-vue';
   import { BasicUpload } from '/@/components/Upload';

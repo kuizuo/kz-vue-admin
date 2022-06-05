@@ -26,7 +26,7 @@
   </PageWrapper>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="用户详情">
   import { ref, onMounted } from 'vue';
   import { Tabs } from 'ant-design-vue';
   import { useRoute } from 'vue-router';

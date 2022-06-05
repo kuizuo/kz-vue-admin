@@ -76,7 +76,7 @@
   </div>
 </template>
 
-<script lang="ts" setup name="Serve">
+<script lang="ts" setup name="服务监控">
   import { reactive, computed, toRefs, onMounted, onBeforeUnmount } from 'vue';
   import { Card, Descriptions, Tag } from 'ant-design-vue';
   import Progress from '/@/components/Progress/index.vue';

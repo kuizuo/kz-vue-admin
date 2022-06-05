@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<script lang="ts" setup name="EmailTool">
+<script lang="ts" setup name="邮件工具">
   import { Tabs } from 'ant-design-vue';
   import { defineAsyncComponent } from 'vue';
 

@@ -18,7 +18,7 @@
   </BasicTable>
 </template>
 
-<script setup lang="ts" name="Online">
+<script setup lang="ts" name="在线用户">
   import { BasicTable, useTable, TableAction } from '/@/components/Table';
   import { useSocket } from '/@/hooks/web/useSocket';
   import { getOnlineList, kickUser } from '/@/api/admin/system/online';

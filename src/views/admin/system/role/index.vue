@@ -26,7 +26,7 @@
     <RoleDrawer @register="registerDrawer" @success="handleSuccess" />
   </div>
 </template>
-<script lang="ts" setup name="RoleManagement">
+<script lang="ts" setup name="角色管理">
   import { BasicTable, useTable, TableAction } from '/@/components/Table';
   import { useDrawer } from '/@/components/Drawer';
   import RoleDrawer from './RoleDrawer.vue';

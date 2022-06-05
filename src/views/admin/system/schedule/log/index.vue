@@ -1,7 +1,7 @@
 <template>
   <BasicTable @register="registerTable" />
 </template>
-<script lang="ts" setup name="ScheduleLog">
+<script lang="ts" setup name="任务日志">
   import { BasicTable, useTable } from '/@/components/Table';
   import { getTaskLogList } from '/@/api/admin/system/log';
   import { columns, searchFormSchema } from './log.data';

@@ -30,7 +30,7 @@
     <MenuDrawer @register="registerDrawer" @success="handleSuccess" />
   </div>
 </template>
-<script lang="ts" setup name="MenuManagement">
+<script lang="ts" setup name="菜单管理">
   import { nextTick } from 'vue';
   import { BasicTable, useTable, TableAction } from '/@/components/Table';
   import { useDrawer } from '/@/components/Drawer';
