@@ -6,22 +6,12 @@ enum Api {
   Delete = '/tools/storage/delete',
 }
 
-export function getStorageList(params?: API.PageParams) {
-  return defHttp.get<API.TableListResult<API.StorageListPageResult>>({
+export const getStorageList = (params?: API.PageParams) =>
+  defHttp.get<API.TableListResult<API.StorageListPageResult>>({
     url: Api.List,
     params,
-    paramsSerializer: (params) => {
-      return qs.stringify(params, { arrayFormat: 'repeat' });
-    },
+    paramsSerializer: (params) => qs.stringify(params, { arrayFormat: 'repeat' }),
   });
-}
 
-export function deleteStorage(params: { ids: number[] }) {
-  return defHttp.post(
-    {
-      url: Api.Delete,
-      params,
-    },
-    { successMsg: '删除成功' },
-  );
-}
+export const deleteStorage = (params: { ids: number[] }) =>
+  defHttp.post({ url: Api.Delete, params }, { successMsg: '删除成功' });

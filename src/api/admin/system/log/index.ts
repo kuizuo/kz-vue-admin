@@ -6,22 +6,16 @@ enum Api {
   TaskLogList = '/sys/log/task/page',
 }
 
-export function getLoginLogList(params) {
-  return defHttp.get<API.TableListResult<API.LoginLogListResult>>({
+export const getLoginLogList = (params) =>
+  defHttp.get<API.TableListResult<API.LoginLogListResult>>({
     url: Api.LoginLogList,
     params,
-    paramsSerializer: (params) => {
-      return qs.stringify(params, { arrayFormat: 'repeat' });
-    },
+    paramsSerializer: (params) => qs.stringify(params, { arrayFormat: 'repeat' }),
   });
-}
 
-export function getTaskLogList(params) {
-  return defHttp.get<API.TableListResult<API.TaskLogListResult>>({
+export const getTaskLogList = (params) =>
+  defHttp.get<API.TableListResult<API.TaskLogListResult>>({
     url: Api.TaskLogList,
     params,
-    paramsSerializer: (params) => {
-      return qs.stringify(params, { arrayFormat: 'repeat' });
-    },
+    paramsSerializer: (params) => qs.stringify(params, { arrayFormat: 'repeat' }),
   });
-}

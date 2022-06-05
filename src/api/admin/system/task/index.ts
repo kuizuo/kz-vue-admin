@@ -15,68 +15,22 @@ type CommonParams = {
   id: number;
 };
 
-export function getTaskList(params?: API.PageParams) {
-  return defHttp.get<API.TableListResult<API.SysTaskListItem[]>>({
-    url: Api.List,
-    params,
-  });
-}
+export const getTaskList = (params?: API.PageParams) =>
+  defHttp.get<API.TableListResult<API.SysTaskListItem[]>>({ url: Api.List, params });
 
-export function getTaskInfo(params: CommonParams) {
-  return defHttp.get<API.SysTaskInfoResult>({
-    url: Api.Info,
-    params,
-  });
-}
+export const getTaskInfo = (params: CommonParams) =>
+  defHttp.get<API.SysTaskInfoResult>({ url: Api.Info, params });
 
-export function taskAdd(params?: API.SysTaskAddParams) {
-  return defHttp.post(
-    {
-      url: Api.Add,
-      params,
-    },
-    {
-      successMsg: '添加成功',
-    },
-  );
-}
+export const taskAdd = (params?: API.SysTaskAddParams) =>
+  defHttp.post({ url: Api.Add, params }, { successMsg: '添加成功' });
 
-export function taskUpdate(params?: API.SysTaskUpdateParams) {
-  return defHttp.post(
-    {
-      url: Api.Update,
-      params,
-    },
-    {
-      successMsg: '修改成功',
-    },
-  );
-}
+export const taskUpdate = (params?: API.SysTaskUpdateParams) =>
+  defHttp.post({ url: Api.Update, params }, { successMsg: '修改成功' });
 
-export function taskDelete(params: CommonParams) {
-  return defHttp.post({
-    url: Api.Delete,
-    params,
-  });
-}
+export const taskDelete = (params: CommonParams) => defHttp.post({ url: Api.Delete, params });
 
-export function taskOnce(params: CommonParams) {
-  return defHttp.post({
-    url: Api.Once,
-    params,
-  });
-}
+export const taskOnce = (params: CommonParams) => defHttp.post({ url: Api.Once, params });
 
-export function taskStart(params: CommonParams) {
-  return defHttp.post({
-    url: Api.Start,
-    params,
-  });
-}
+export const taskStart = (params: CommonParams) => defHttp.post({ url: Api.Start, params });
 
-export function taskStop(params: CommonParams) {
-  return defHttp.post({
-    url: Api.Stop,
-    params,
-  });
-}
+export const taskStop = (params: CommonParams) => defHttp.post({ url: Api.Stop, params });

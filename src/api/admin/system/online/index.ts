@@ -5,20 +5,8 @@ enum Api {
   Kick = '/sys/online/kick',
 }
 
-export function getOnlineList() {
-  return defHttp.get<API.TableListResult<API.OnlineUserListResult>>({
-    url: Api.List,
-  });
-}
+export const getOnlineList = () =>
+  defHttp.get<API.TableListResult<API.OnlineUserListResult>>({ url: Api.List });
 
-export function kickUser(data: { id: number }) {
-  return defHttp.post(
-    {
-      url: Api.Kick,
-      data,
-    },
-    {
-      successMsg: '下线成功',
-    },
-  );
-}
+export const kickUser = (data: { id: number }) =>
+  defHttp.post({ url: Api.Kick, data }, { successMsg: '下线成功' });

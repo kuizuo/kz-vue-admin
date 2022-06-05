@@ -28,12 +28,7 @@ export const updateUser = (params: API.UpdateUserParams) =>
   defHttp.post({ url: Api.Update, params }, { successMsg: '更新成功' });
 
 export const deleteUser = (params: { ids: number[] }) =>
-  defHttp.post(
-    { url: Api.Delete, params },
-    {
-      successMsg: '删除成功',
-    },
-  );
+  defHttp.post({ url: Api.Delete, params }, { successMsg: '删除成功' });
 
 export const updateUserPassword = (params: API.UpdateUserPassword) =>
   defHttp.post({ url: Api.UpdatePassword, params }, { successMsg: '修改成功' });

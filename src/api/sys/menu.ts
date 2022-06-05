@@ -5,10 +5,4 @@ enum Api {
   GetMenuList = '/account/menu',
 }
 
-/**
- * @description: Get user menu based on id
- */
-
-export const getMenuList = () => {
-  return defHttp.get<getMenuListResultModel>({ url: Api.GetMenuList });
-};
+export const getMenuList = () => defHttp.get<getMenuListResultModel>({ url: Api.GetMenuList });

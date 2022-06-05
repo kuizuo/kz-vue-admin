@@ -5,25 +5,9 @@ enum Api {
   Send = '/tools/email/send',
 }
 
-export function getEmailConfig() {
-  return defHttp.get({
-    url: Api.EmailConfig,
-  });
-}
+export const getEmailConfig = () => defHttp.get({ url: Api.EmailConfig });
 
-export function saveEmailConfig(params) {
-  return defHttp.post({
-    url: Api.EmailConfig,
-    params,
-  });
-}
+export const saveEmailConfig = (params) => defHttp.post({ url: Api.EmailConfig, params });
 
-export function sendEmail(params) {
-  return defHttp.post(
-    {
-      url: Api.Send,
-      params,
-    },
-    { successMsg: '发送成功' },
-  );
-}
+export const sendEmail = (params) =>
+  defHttp.post({ url: Api.Send, params }, { successMsg: '发送成功' });
