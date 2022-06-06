@@ -49,7 +49,7 @@
   });
 
   async function handlePassword() {
-    await updateUserPassword({ id: userId.value, password: '123456' });
+    await updateUserPassword({ id: parseInt(userId.value), password: '123456' });
   }
 
   setTitle('详情：用户' + userId.value);
