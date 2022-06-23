@@ -155,19 +155,8 @@ export const formSchema: FormSchema[] = [
       mode: 'multiple',
     },
     colProps: { span: 24 },
-    rules: [
-      {
-        validator(_, value) {
-          console.log(value);
-          if (value === undefined) return Promise.resolve();
-          if (value?.length > 0) {
-            return Promise.resolve();
-          }
-
-          return Promise.reject('请输入角色');
-        },
-      },
-    ],
+    itemProps: { validateTrigger: 'blur' },
+    required: true,
   },
   {
     field: 'nickName',
