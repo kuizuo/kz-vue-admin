@@ -62,6 +62,10 @@
         id: rowId.value,
       };
 
+      if (!data.password) {
+        delete data.password;
+      }
+
       await (!unref(isUpdate) ? createUser : updateUser)(data);
 
       closeModal();
