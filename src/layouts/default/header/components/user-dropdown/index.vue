@@ -4,13 +4,18 @@
       <img :class="`${prefixCls}__header`" :src="getUserInfo.avatar" />
       <span :class="`${prefixCls}__info hidden md:block`">
         <span :class="`${prefixCls}__name  `" class="truncate">
-          {{ getUserInfo.realName }}
+          {{ getUserInfo.nickName }}
         </span>
       </span>
     </span>
 
     <template #overlay>
       <Menu @click="handleMenuClick">
+        <MenuItem
+          key="profile"
+          :text="t('layout.header.profileSetting')"
+          icon="ion:settings-outline"
+        />
         <MenuItem
           key="doc"
           :text="t('layout.header.dropdownItemDoc')"
@@ -35,10 +40,10 @@
   <LockAction @register="register" />
 </template>
 <script lang="ts">
-  // components
   import { Dropdown, Menu } from 'ant-design-vue';
 
   import { defineComponent, computed } from 'vue';
+  import { useRouter } from 'vue-router';
 
   import { DOC_URL } from '/@/settings/siteSetting';
 
@@ -53,8 +58,9 @@
   import { openWindow } from '/@/utils';
 
   import { createAsyncComponent } from '/@/utils/factory/createAsyncComponent';
+  import { MenuInfo } from 'ant-design-vue/lib/menu/src/interface';
 
-  type MenuEvent = 'logout' | 'doc' | 'lock';
+  type MenuEvent = 'logout' | 'doc' | 'profile' | 'lock';
 
   export default defineComponent({
     name: 'UserDropdown',
@@ -73,10 +79,11 @@
       const { t } = useI18n();
       const { getShowDoc, getUseLockPage } = useHeaderSetting();
       const userStore = useUserStore();
+      const router = useRouter();
 
       const getUserInfo = computed(() => {
-        const { realName = '', avatar, desc } = userStore.getUserInfo || {};
-        return { realName, avatar: avatar || headerImg, desc };
+        const { nickName = '', avatar, desc } = userStore.getUserInfo || {};
+        return { nickName, avatar: avatar || headerImg, desc };
       });
 
       const [register, { openModal }] = useModal();
@@ -95,13 +102,23 @@
         openWindow(DOC_URL);
       }
 
-      function handleMenuClick(e: { key: MenuEvent }) {
-        switch (e.key) {
+      // open profile
+      function openProfile() {
+        router.push({
+          path: '/profile/setting',
+        });
+      }
+
+      function handleMenuClick(e: MenuInfo) {
+        switch (e.key as MenuEvent) {
           case 'logout':
             handleLoginOut();
             break;
           case 'doc':
             openDoc();
+            break;
+          case 'profile':
+            openProfile();
             break;
           case 'lock':
             handleLock();

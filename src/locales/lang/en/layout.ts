@@ -2,6 +2,7 @@ export default {
   footer: { onlinePreview: 'Preview', onlineDocument: 'Document' },
   header: {
     // user dropdown
+    profileSetting: 'Profile',
     dropdownItemDoc: 'Document',
     dropdownItemLoginOut: 'Login Out',
 

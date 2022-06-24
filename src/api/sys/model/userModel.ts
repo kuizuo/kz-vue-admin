@@ -31,10 +31,21 @@ export interface GetUserInfoModel {
   username: string;
   // 昵称
   nickName: string;
+  // 邮箱
+  email: string;
   // 头像
   avatar: string;
   // 介绍
-  desc?: string;
+  remark?: string;
+}
+
+export interface UpdateUserInfoParams {
+  userId: string | number;
+  nickName: string;
+  qq: string;
+  email: string;
+  avatar: string;
+  remark?: string;
 }
 
 export interface RegisterParams {

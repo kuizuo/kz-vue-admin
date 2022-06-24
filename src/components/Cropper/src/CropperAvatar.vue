@@ -91,9 +91,11 @@
         },
       );
 
-      function handleUploadSuccess({ source }) {
+      function handleUploadSuccess(response) {
+        const source = response.source;
+        const filename = response.data.data.filename;
         sourceValue.value = source;
-        emit('change', source);
+        emit('change', source, filename);
         createMessage.success(t('component.cropper.uploadSuccess'));
       }
 

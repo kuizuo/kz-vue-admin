@@ -34,6 +34,7 @@ export interface UserInfo {
   userId: string | number;
   username: string;
   nickName: string;
+  email: string;
   avatar: string;
   desc?: string;
   homePath?: string;
