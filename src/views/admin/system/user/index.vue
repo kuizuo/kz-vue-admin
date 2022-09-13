@@ -8,12 +8,12 @@
         <TableAction
           :actions="[
             {
-              icon: 'clarity:info-standard-line',
+              icon: 'ant-design:info-circle-outlined',
               tooltip: '查看用户详情',
               onClick: handleView.bind(null, record),
             },
             {
-              icon: 'clarity:note-edit-line',
+              icon: 'ant-design:edit-outlined',
               tooltip: '编辑用户资料',
               onClick: handleEdit.bind(null, record),
             },

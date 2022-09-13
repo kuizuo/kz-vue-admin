@@ -8,7 +8,7 @@
         <TableAction
           :actions="[
             {
-              icon: 'clarity:note-edit-line',
+              icon: 'ant-design:edit-outlined',
               onClick: handleEdit.bind(null, record),
             },
             {

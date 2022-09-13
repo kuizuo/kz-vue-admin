@@ -10,7 +10,7 @@
         <TableAction
           :actions="[
             {
-              icon: 'clarity:note-edit-line',
+              icon: 'ant-design:edit-outlined',
               tooltip: '编辑任务',
               disabled: !hasPermission('sys:task:update'),
               onClick: handleEdit.bind(null, record),

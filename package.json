@@ -151,13 +151,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anncwb/vue-vben-admin.git"
+    "url": "git+https://github.com/kuizuo/kz-vue-admin.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/anncwb/vue-vben-admin/issues"
+    "url": "https://github.com/kuizuo/kz-vue-admin/issues"
   },
-  "homepage": "https://github.com/anncwb/vue-vben-admin",
+  "homepage": "https://github.com/kuizuo/kz-vue-admin",
   "engines": {
     "node": "^12 || >=14"
   },

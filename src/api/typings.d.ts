@@ -4,7 +4,7 @@
 declare namespace API {
   /** 全局通过表格查询返回结果 */
   type TableListResult<T = any> = {
-    item: T;
+    items: T;
     total: number;
   };
 
