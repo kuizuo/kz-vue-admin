@@ -16,6 +16,10 @@ import { configThemePlugin } from './theme';
 import { configImageminPlugin } from './imagemin';
 import { configSvgIconsPlugin } from './svgSprite';
 
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
+
 export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
   const {
     VITE_USE_IMAGEMIN,
@@ -34,6 +38,17 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
     vueSetupExtend(),
     VitePluginCertificate({
       source: 'coding',
+    }),
+    // unplugin-auto-import
+    AutoImport({
+      imports: ['vue', 'vue-router', 'vue-i18n', 'vue/macros', '@vueuse/head', '@vueuse/core'],
+      vueTemplate: true,
+      dts: 'types/auto-imports.d.ts',
+    }),
+    // unplugin-vue-components
+    Components({
+      resolvers: [AntDesignVueResolver()],
+      dts: 'types/components.d.ts',
     }),
   ];
 
