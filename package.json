@@ -1,9 +1,11 @@
 {
   "name": "kz-vue-admin",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "packageManager": "pnpm@7.11.0",
+  "description": "基于NestJs + TypeScript + TypeORM + Redis + MySql + Vben Admin编写的一款前后端分离的权限管理系统",
   "author": {
     "name": "kuizuo",
-    "email": "kuizuo12@163.com",
+    "email": "hi@kuizuo.cn",
     "url": "https://github.com/kuizuo"
   },
   "scripts": {
@@ -153,7 +155,6 @@
     "type": "git",
     "url": "git+https://github.com/kuizuo/kz-vue-admin.git"
   },
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/kuizuo/kz-vue-admin/issues"
   },
@@ -184,5 +185,6 @@
     "*.md": [
       "prettier --write"
     ]
-  }
+  },
+  "license": "MIT"
 }
