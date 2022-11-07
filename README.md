@@ -1,6 +1,8 @@
 # kz-vue-admin
 
-**基于 NestJs + TypeScript + TypeORM + Redis + MySql + Vben Admin 编写的一款简单高效的前后端分离的权限管理系统。希望这个项目在全栈的路上能够帮助到你。**
+**仓库已迁移至 [kuizuo/kz-admin](https://github.com/kuizuo/kz-admin)，本仓库已不在维护。**
+
+基于 NestJs + TypeScript + TypeORM + Redis + MySql + Vben Admin 编写的一款简单高效的前后端分离的权限管理系统。希望这个项目在全栈的路上能够帮助到你。
 
 - [在线预览](https://admin.kuizuo.cn)
 - [Swagger Api 文档](https://admin.kuizuo.cn/swagger-ui/static/index.html)
